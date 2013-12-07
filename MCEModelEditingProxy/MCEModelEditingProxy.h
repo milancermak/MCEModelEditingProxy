@@ -25,14 +25,18 @@
 
 @end
 
-// TODO: add some comments/documentation to each method
-
 @interface MCEModelEditingProxy : NSProxy
 
 @property (nonatomic, getter=isUpdated, readonly) BOOL updates;
 
 - (id)initWithModel:(id<MCEModelEditing>)modelObject;
+
+// Returns an NSDictionary holding new values of properties
+// that were set on the model since initialization.
 - (NSDictionary *)newValues;
+
+// Call this method to throw away all recorded changes
+// made to the model.
 - (void)reset;
 
 @end

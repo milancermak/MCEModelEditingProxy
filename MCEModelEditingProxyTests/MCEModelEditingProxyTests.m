@@ -6,14 +6,15 @@
 //  Copyright (c) 2013 Milan Cermak. All rights reserved.
 //
 
-// TODO: add a note about creating modelProxy in every test method --
-//       not doing it wouldn't work
+// Every test* method creates its own modelProxy instance, instead
+// of having it as an ivar and creating it in -setUp. The latter
+// method didn't work (running the test suite resulted in a
+// doesNotRecognizeSelector: error). Honestly, I don't know why.
 
 #import <XCTest/XCTest.h>
 #import "DummyModel.h"
 
 @interface MCEModelEditingProxyTests : XCTestCase
-
 @end
 
 @implementation MCEModelEditingProxyTests {
