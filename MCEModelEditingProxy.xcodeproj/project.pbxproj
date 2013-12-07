@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4C37B4021853629C00F6813A /* DummyModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C37B4011853629C00F6813A /* DummyModel.m */; };
+		4C64E0F518534DB50016A5B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C64E0F418534DB50016A5B7 /* Foundation.framework */; };
+		4C64E0FA18534DB50016A5B7 /* MCEModelEditingProxy.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4C64E0F918534DB50016A5B7 /* MCEModelEditingProxy.h */; };
+		4C64E0FC18534DB50016A5B7 /* MCEModelEditingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C64E0FB18534DB50016A5B7 /* MCEModelEditingProxy.m */; };
+		4C64E10318534DB50016A5B7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C64E10218534DB50016A5B7 /* XCTest.framework */; };
+		4C64E10418534DB50016A5B7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C64E0F418534DB50016A5B7 /* Foundation.framework */; };
+		4C64E10918534DB50016A5B7 /* libMCEModelEditingProxy.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C64E0F118534DB50016A5B7 /* libMCEModelEditingProxy.a */; };
+		4C64E11118534DB50016A5B7 /* MCEModelEditingProxyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C64E11018534DB50016A5B7 /* MCEModelEditingProxyTests.m */; };
+		4CC84CFC18536F8B00E1CDD9 /* MCEModelEditingProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C64E0FB18534DB50016A5B7 /* MCEModelEditingProxy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4C64E10718534DB50016A5B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4C64E0E918534DB50016A5B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C64E0F018534DB50016A5B7;
+			remoteInfo = MCEModelEditingProxy;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4C64E0EF18534DB50016A5B7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				4C64E0FA18534DB50016A5B7 /* MCEModelEditingProxy.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		4C37B4001853629C00F6813A /* DummyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DummyModel.h; sourceTree = "<group>"; };
+		4C37B4011853629C00F6813A /* DummyModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DummyModel.m; sourceTree = "<group>"; };
+		4C64E0F118534DB50016A5B7 /* libMCEModelEditingProxy.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMCEModelEditingProxy.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C64E0F418534DB50016A5B7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4C64E0F818534DB50016A5B7 /* MCEModelEditingProxy-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MCEModelEditingProxy-Prefix.pch"; sourceTree = "<group>"; };
+		4C64E0F918534DB50016A5B7 /* MCEModelEditingProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MCEModelEditingProxy.h; sourceTree = "<group>"; };
+		4C64E0FB18534DB50016A5B7 /* MCEModelEditingProxy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCEModelEditingProxy.m; sourceTree = "<group>"; };
+		4C64E10118534DB50016A5B7 /* MCEModelEditingProxyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MCEModelEditingProxyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4C64E10218534DB50016A5B7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		4C64E10C18534DB50016A5B7 /* MCEModelEditingProxyTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MCEModelEditingProxyTests-Info.plist"; sourceTree = "<group>"; };
+		4C64E11018534DB50016A5B7 /* MCEModelEditingProxyTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MCEModelEditingProxyTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4C64E0EE18534DB50016A5B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C64E0F518534DB50016A5B7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C64E0FE18534DB50016A5B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C64E10318534DB50016A5B7 /* XCTest.framework in Frameworks */,
+				4C64E10418534DB50016A5B7 /* Foundation.framework in Frameworks */,
+				4C64E10918534DB50016A5B7 /* libMCEModelEditingProxy.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4C64E0E818534DB50016A5B7 = {
+			isa = PBXGroup;
+			children = (
+				4C64E0F618534DB50016A5B7 /* MCEModelEditingProxy */,
+				4C64E10A18534DB50016A5B7 /* MCEModelEditingProxyTests */,
+				4C64E0F318534DB50016A5B7 /* Frameworks */,
+				4C64E0F218534DB50016A5B7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4C64E0F218534DB50016A5B7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4C64E0F118534DB50016A5B7 /* libMCEModelEditingProxy.a */,
+				4C64E10118534DB50016A5B7 /* MCEModelEditingProxyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4C64E0F318534DB50016A5B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4C64E0F418534DB50016A5B7 /* Foundation.framework */,
+				4C64E10218534DB50016A5B7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4C64E0F618534DB50016A5B7 /* MCEModelEditingProxy */ = {
+			isa = PBXGroup;
+			children = (
+				4C64E0F918534DB50016A5B7 /* MCEModelEditingProxy.h */,
+				4C64E0FB18534DB50016A5B7 /* MCEModelEditingProxy.m */,
+				4C64E0F718534DB50016A5B7 /* Supporting Files */,
+			);
+			path = MCEModelEditingProxy;
+			sourceTree = "<group>";
+		};
+		4C64E0F718534DB50016A5B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C64E0F818534DB50016A5B7 /* MCEModelEditingProxy-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4C64E10A18534DB50016A5B7 /* MCEModelEditingProxyTests */ = {
+			isa = PBXGroup;
+			children = (
+				4C37B4001853629C00F6813A /* DummyModel.h */,
+				4C37B4011853629C00F6813A /* DummyModel.m */,
+				4C64E11018534DB50016A5B7 /* MCEModelEditingProxyTests.m */,
+				4C64E10B18534DB50016A5B7 /* Supporting Files */,
+			);
+			path = MCEModelEditingProxyTests;
+			sourceTree = "<group>";
+		};
+		4C64E10B18534DB50016A5B7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4C64E10C18534DB50016A5B7 /* MCEModelEditingProxyTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4C64E0F018534DB50016A5B7 /* MCEModelEditingProxy */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C64E11418534DB50016A5B7 /* Build configuration list for PBXNativeTarget "MCEModelEditingProxy" */;
+			buildPhases = (
+				4C64E0ED18534DB50016A5B7 /* Sources */,
+				4C64E0EE18534DB50016A5B7 /* Frameworks */,
+				4C64E0EF18534DB50016A5B7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MCEModelEditingProxy;
+			productName = MCEModelEditingProxy;
+			productReference = 4C64E0F118534DB50016A5B7 /* libMCEModelEditingProxy.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4C64E10018534DB50016A5B7 /* MCEModelEditingProxyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4C64E11718534DB50016A5B7 /* Build configuration list for PBXNativeTarget "MCEModelEditingProxyTests" */;
+			buildPhases = (
+				4C64E0FD18534DB50016A5B7 /* Sources */,
+				4C64E0FE18534DB50016A5B7 /* Frameworks */,
+				4C64E0FF18534DB50016A5B7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4C64E10818534DB50016A5B7 /* PBXTargetDependency */,
+			);
+			name = MCEModelEditingProxyTests;
+			productName = MCEModelEditingProxyTests;
+			productReference = 4C64E10118534DB50016A5B7 /* MCEModelEditingProxyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4C64E0E918534DB50016A5B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Milan Cermak";
+			};
+			buildConfigurationList = 4C64E0EC18534DB50016A5B7 /* Build configuration list for PBXProject "MCEModelEditingProxy" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4C64E0E818534DB50016A5B7;
+			productRefGroup = 4C64E0F218534DB50016A5B7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4C64E0F018534DB50016A5B7 /* MCEModelEditingProxy */,
+				4C64E10018534DB50016A5B7 /* MCEModelEditingProxyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4C64E0FF18534DB50016A5B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4C64E0ED18534DB50016A5B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C64E0FC18534DB50016A5B7 /* MCEModelEditingProxy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C64E0FD18534DB50016A5B7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4CC84CFC18536F8B00E1CDD9 /* MCEModelEditingProxy.m in Sources */,
+				4C37B4021853629C00F6813A /* DummyModel.m in Sources */,
+				4C64E11118534DB50016A5B7 /* MCEModelEditingProxyTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4C64E10818534DB50016A5B7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4C64E0F018534DB50016A5B7 /* MCEModelEditingProxy */;
+			targetProxy = 4C64E10718534DB50016A5B7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4C64E11218534DB50016A5B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4C64E11318534DB50016A5B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4C64E11518534DB50016A5B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MCEModelEditingProxy.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MCEModelEditingProxy/MCEModelEditingProxy-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4C64E11618534DB50016A5B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MCEModelEditingProxy.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MCEModelEditingProxy/MCEModelEditingProxy-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4C64E11818534DB50016A5B7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MCEModelEditingProxy/MCEModelEditingProxy-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MCEModelEditingProxyTests/MCEModelEditingProxyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		4C64E11918534DB50016A5B7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MCEModelEditingProxy/MCEModelEditingProxy-Prefix.pch";
+				INFOPLIST_FILE = "MCEModelEditingProxyTests/MCEModelEditingProxyTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4C64E0EC18534DB50016A5B7 /* Build configuration list for PBXProject "MCEModelEditingProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C64E11218534DB50016A5B7 /* Debug */,
+				4C64E11318534DB50016A5B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C64E11418534DB50016A5B7 /* Build configuration list for PBXNativeTarget "MCEModelEditingProxy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C64E11518534DB50016A5B7 /* Debug */,
+				4C64E11618534DB50016A5B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4C64E11718534DB50016A5B7 /* Build configuration list for PBXNativeTarget "MCEModelEditingProxyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4C64E11818534DB50016A5B7 /* Debug */,
+				4C64E11918534DB50016A5B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4C64E0E918534DB50016A5B7 /* Project object */;
+}
