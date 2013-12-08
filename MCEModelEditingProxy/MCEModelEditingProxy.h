@@ -19,6 +19,7 @@
 
 @optional
 
+- (void)commit;
 - (BOOL)isUpdated;
 - (NSDictionary *)newValues;
 - (void)reset;
@@ -30,6 +31,10 @@
 @property (nonatomic, getter=isUpdated, readonly) BOOL updates;
 
 - (id)initWithModel:(id<MCEModelEditing>)modelObject;
+
+// Calling commit sets the new values, that have been so far
+// set only on the proxy, on the original model.
+- (void)commit;
 
 // Returns an NSDictionary holding new values of properties
 // that were set on the model since initialization.

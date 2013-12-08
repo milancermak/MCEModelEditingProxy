@@ -40,7 +40,9 @@ bool is_property_readwrite(objc_property_t property) {
 
 - (BOOL)isGetterForWritableProperty:(NSString *)selectorAsString;
 - (BOOL)isSetterForWritableProperty:(NSString *)selectorAsString;
+- (NSString *)setterForPropertyName:(NSString *)propertyName;
 - (void)storePrimitiveValue:(NSString *)propertyName fromInvocation:(NSInvocation *)invocation;
+- (void *)unboxValue:(id)value ofProperty:(objc_property_t)property;
 
 @end
 
@@ -180,6 +182,33 @@ bool is_property_readwrite(objc_property_t property) {
 
 #pragma mark - Public
 
+- (void)commit {
+    [_propertiesNewValues enumerateKeysAndObjectsUsingBlock:^(id key, id value, BOOL *stop) {
+        NSString *setter = [self setterForPropertyName:(NSString *)key];
+        SEL setterSelector = NSSelectorFromString(setter);
+
+        objc_property_t property = class_getProperty([self.modelObject class], [key UTF8String]);
+        if (is_object_type(property)) {
+            // object types can be set using performSelector:withObject:
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+            [self.modelObject performSelector:setterSelector withObject:value];
+#pragma clang diagnostic pop
+        } else {
+            // non object types have to be set using NSInvocation
+            NSMethodSignature *methodSignature = [(NSObject *)self.modelObject methodSignatureForSelector:setterSelector];
+            NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSignature];
+            [invocation setSelector:setterSelector];
+            void *primitiveValue = [self unboxValue:value ofProperty:property];
+            [invocation setArgument:primitiveValue atIndex:2];
+            [invocation invokeWithTarget:self.modelObject];
+            free(primitiveValue);
+        }
+    }];
+
+    [self reset];
+}
+
 - (NSDictionary *)newValues {
     return [NSDictionary dictionaryWithDictionary:_propertiesNewValues];
 }
@@ -197,6 +226,15 @@ bool is_property_readwrite(objc_property_t property) {
 
 - (BOOL)isSetterForWritableProperty:(NSString *)selectorAsString {
     return _setters[selectorAsString] != nil;
+}
+
+- (NSString *)setterForPropertyName:(NSString *)propertyName {
+    for (NSString *key in _setters) {
+        if ([_setters[key] isEqualToString:propertyName]) {
+            return key;
+        }
+    }
+    return nil;
 }
 
 - (void)storePrimitiveValue:(NSString *)propertyName fromInvocation:(NSInvocation *)invocation {
@@ -267,6 +305,55 @@ bool is_property_readwrite(objc_property_t property) {
         free(primitiveValue);
     }
     free(property_type);
+}
+
+- (void *)unboxValue:(id)value ofProperty:(objc_property_t)property {
+    void *unboxed = NULL;
+    alloc_storage_for_property(&unboxed, property);
+    char *property_type = property_copyAttributeValue(property, "T");
+
+    if (strncmp(property_type, @encode(char), 1) == 0) {
+        char val = [(NSNumber *)value charValue];
+        memcpy(unboxed, &val, sizeof(char));
+    } else if (strncmp(property_type, @encode(double), 1) == 0) {
+        double val = [(NSNumber *)value doubleValue];
+        memcpy(unboxed, &val, sizeof(double));
+    } else if (strncmp(property_type, @encode(float), 1) == 0) {
+        float val = [(NSNumber *)value floatValue];
+        memcpy(unboxed, &val, sizeof(float));
+    } else if (strncmp(property_type, @encode(int), 1) == 0) {
+        int val = [(NSNumber *)value intValue];
+        memcpy(unboxed, &val, sizeof(int));
+    } else if (strncmp(property_type, @encode(long), 1) == 0) {
+        long val = [(NSNumber *)value longValue];
+        memcpy(unboxed, &val, sizeof(long));
+    } else if (strncmp(property_type, @encode(long long), 1) == 0) {
+        long long val = [(NSNumber *)value longLongValue];
+        memcpy(unboxed, &val, sizeof(long long));
+    } else if (strncmp(property_type, @encode(short), 1) == 0) {
+        short val = [(NSNumber *)value shortValue];
+        memcpy(unboxed, &val, sizeof(short));
+    } else if (strncmp(property_type, @encode(unsigned char), 1) == 0) {
+        unsigned char val = [(NSNumber *)value unsignedCharValue];
+        memcpy(unboxed, &val, sizeof(unsigned char));
+    } else if (strncmp(property_type, @encode(unsigned int), 1) == 0) {
+        unsigned int val = [(NSNumber *)value unsignedIntValue];
+        memcpy(unboxed, &val, sizeof(unsigned int));
+    } else if (strncmp(property_type, @encode(unsigned long), 1) == 0) {
+        unsigned long val = [(NSNumber *)value unsignedLongValue];
+        memcpy(unboxed, &val, sizeof(unsigned long));
+    } else if (strncmp(property_type, @encode(unsigned long long), 1) == 0) {
+        unsigned long long val = [(NSNumber *)value unsignedLongLongValue];
+        memcpy(unboxed, &val, sizeof(unsigned long long));
+    } else if (strncmp(property_type, @encode(unsigned short), 1) == 0) {
+        unsigned short val = [(NSNumber *)value unsignedShortValue];
+        memcpy(unboxed, &val, sizeof(unsigned short));
+    } else {
+        [(NSValue *)value getValue:unboxed];
+    }
+
+    free(property_type);
+    return unboxed;
 }
 
 @end

@@ -151,6 +151,69 @@
     XCTAssertNotNil(newValues[@"csArray"], @"Missing NSArray value with custom setter");
 }
 
+- (void)testCommit {
+    DummyModel *modelProxy = [model modelProxy];
+
+    BOOL newBool = YES;
+    char newChar = 'i';
+    double newDouble = 0.1;
+    float newFloat = 0.24f;
+    int newInt = -1;
+    long newLong = -10L;
+    long long newLongLong = -100LL;
+    short newShort = (short) -1;
+    unsigned char newUChar = (unsigned char ) 'n';
+    unsigned int newUInt = 2U;
+    unsigned long newULong = 20UL;
+    unsigned long long newULongLong = 200ULL;
+    unsigned short newUShort = (unsigned short) 2;
+
+    NSArray *newArray = @[@"pyramid"];
+    NSDictionary *newDict = @{@"joke": @"Why did the hipster drown? Because he swam against the main stream."};
+    NSNumber *newNumber = @2;
+
+    modelProxy.aBool = newBool;
+    modelProxy.aChar = newChar;
+    modelProxy.aDouble = newDouble;
+    modelProxy.aFloat = newFloat;
+    modelProxy.anInt = newInt;
+    modelProxy.aLong = newLong;
+    modelProxy.aLongLong = newLongLong;
+    modelProxy.aShort = newShort;
+    modelProxy.anUChar = newUChar;
+    modelProxy.anUInt = newUInt;
+    modelProxy.anULong = newULong;
+    modelProxy.anULongLong = newULongLong;
+    modelProxy.anUShort = newUShort;
+
+    [modelProxy rememberIt:newArray];
+    modelProxy.aDict = newDict;
+    modelProxy.value = newNumber;
+
+    [modelProxy commit];
+
+    XCTAssertTrue(model.aBool == newBool, @"Model BOOL value not updated after committing");
+    XCTAssertTrue(model.aChar == newChar, @"Model char value not updated after committing");
+    NSLog(@"double: %f", model.aDouble);
+    XCTAssertTrue(model.aDouble == newDouble, @"Model double value not updated after committing");
+    XCTAssertTrue(model.aFloat == newFloat, @"Model float value not updated after committing");
+    XCTAssertTrue(model.anInt == newInt, @"Model int value not updated after committing");
+    XCTAssertTrue(model.aLong == newLong, @"Model long value not updated after committing");
+    XCTAssertTrue(model.aLongLong == newLongLong, @"Model long long value not updated after committing");
+    XCTAssertTrue(model.aShort == newShort, @"Model short value not updated after committing");
+    XCTAssertTrue(model.anUChar == newUChar, @"Model unsigned char value not updated after committing");
+    XCTAssertTrue(model.anUInt == newUInt, @"Model unsigned int value not updated after committing");
+    XCTAssertTrue(model.anULong == newULong, @"Model unsigned long value not updated after committing");
+    XCTAssertTrue(model.anULongLong == newULongLong, @"Model unsigned long long value not updated after committing");
+    XCTAssertTrue(model.anUShort == newUShort, @"Model unsigned short value not updated after committing");
+
+    XCTAssertTrue([model.csArray isEqualToArray:newArray], @"Model array with custom setter not updated after committing");
+    XCTAssertTrue([model.aDict isEqualToDictionary:newDict], @"Model dictionary not updated after committing");
+    XCTAssertTrue([model.getTheValue isEqualToNumber:newNumber], @"Model number with custom getter not updated after committing");
+    XCTAssertFalse([modelProxy isUpdated], @"Model proxy reporting as updated after commit");
+    XCTAssertTrue(0 == [[modelProxy newValues] count], @"Model proxy reporting new values after commit");
+}
+
 - (void)testReset {
     DummyModel *modelProxy = [model modelProxy];
 
