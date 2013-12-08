@@ -1,5 +1,6 @@
 MCEModelEditingProxy
 ====================
+[![Build Status](https://travis-ci.org/milancermak/MCEModelEditingProxy.png)](https://travis-ci.org/milancermak/MCEModelEditingProxy)
 
 MCEModelEditingProxy is an NSProxy subclass that keeps your models clean. It acts as a transparent layer between your model and your controller, intercepting writes to the model. New values are not set on the original model, but are instead set on the proxy. This is useful when you need to display values, let the user edit them, but not store them right away, only after they e.g. press an OK button.
 
