@@ -3,7 +3,7 @@ MCEModelEditingProxy
 
 MCEModelEditingProxy is an NSProxy subclass that keeps your models clean. It acts as a transparent layer between your model and your controller, intercepting writes to the model. New values are not set on the original model, but are instead set on the proxy. This is useful when you need to display values, let the user edit them, but not store them right away, only after they e.g. press an OK button.
 
-MCEModelEditingProxy works both with objects as well as primitive C values (such as char, int or double) and also custom _named_ getters and setters on properties. However, if you have custom _implementations_ of getters or setters (e.g. for side-effects), these will not be executed while using the proxy.
+MCEModelEditingProxy works both with objects as well as primitive C values (such as char, int or double) and also custom _named_ getters and setters on properties. However, if you have custom _implementations_ of getters or setters (e.g. for side-effects), these will not be executed while using the proxy, but will get triggered when you call the `-commit` method.
 
 ## Usage
 Let's say we have the following model:
@@ -66,6 +66,12 @@ self.ageLabel.text = [NSString stringWithFormat:@"Age: %d", self.userProxy.age];
 self.userProxy.age = 42;
 ```
 Reading the `age` value from the proxy will return 42, but the proxied (original) model is kept untouched - the value of its `age` property stays the same.
+
+If you want to apply the changes that the proxy intercepted back to the original model, call `-commit`:
+```objc
+[self.userProxy commit];
+```
+The values of `age` on the original model will now be 42 and the `-isUpdated` method of the proxy will return NO.
 
 ## License
 
